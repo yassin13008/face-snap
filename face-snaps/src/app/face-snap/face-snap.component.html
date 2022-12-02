@@ -3,5 +3,8 @@
     <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
+    <!--  Il a deux condition = la premier est s'il y a facesnap. localisation -->
+    <!-- Ici j'ai mis la condition si facesnap location est okinawa -->
+    <p *ngIf="faceSnap.location === 'Okinawa'"> Photo prise à {{ faceSnap.location }}</p>
     <p> <button (click)="onSnap()">{{ buttonText }}</button>🤌 {{ faceSnap.snaps }}</p>
   </div>
