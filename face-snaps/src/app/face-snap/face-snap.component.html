@@ -1,10 +1,22 @@
-<div class="face-snap-card">
+<div class="face-snap-card" [ngClass]="{ snapped : buttonText === 'UnSnap ?'}">
+
+<!-- Ici je rajoute la directive ng class => entre croched je met la class à ajouter + la condition d'ajout -->
     <h2>{{ faceSnap.title }}</h2>
+
     <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
+
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+
     <p>{{ faceSnap.description }}</p>
+
     <!--  Il a deux condition = la premier est s'il y a facesnap. localisation -->
     <!-- Ici j'ai mis la condition si facesnap location est okinawa -->
+
     <p *ngIf="faceSnap.location === 'Okinawa'"> Photo prise à {{ faceSnap.location }}</p>
-    <p> <button (click)="onSnap()">{{ buttonText }}</button>🤌 {{ faceSnap.snaps }}</p>
+
+    <!--  Je vais crée un span pour rendre dynamique avec du style mon faceSnap.snaps
+    J'ajoute la directive ng style -->
+    <!-- directive structurelle est avec un * et directive attribut avec des [] -->
+
+    <p> <button (click)="onSnap()">{{ buttonText }}</button><span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span> </p>
   </div>

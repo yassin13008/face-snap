@@ -1,3 +1,13 @@
-<app-face-snap [faceSnap]="mySnap"></app-face-snap>
-<app-face-snap [faceSnap]="myOtherSnap"></app-face-snap>
-<app-face-snap [faceSnap]="myLastSnap"></app-face-snap>
+<app-face-snap *ngFor="let faceSnap of faceSnap"
+ [faceSnap]="faceSnap"></app-face-snap>
+
+
+<!-- <app-face-snap *ngFor="let faceSnapElementOfArray of faceSnap"
+ [faceSnap]="faceSnapElementOfArray"></app-face-snap> -->
+
+<!--  Exemple du dessus pour comprendre le code 
+     Cela veux dire littéralement : 
+     Pour chaque element du tablau facesnap, 
+    je genere un component facesnap ( y en a 3 donc 3)
+Je lui associe l'élément qui lui correspont ( pense au length 0, 1, 2)
+ngFor va permettre la création des app selon le nombre d'objet dans le tableau ( y en a 3 ) -->
