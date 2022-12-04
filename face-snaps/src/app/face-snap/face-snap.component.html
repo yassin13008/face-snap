@@ -8,7 +8,15 @@
     | lowercase = Met le text en minuscule
     | Title case = Met la premiere lettre en maj et le reste en miniscule -->
 
-    <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
+    <p>Mis en ligne {{ faceSnap.createdDate | date :'le d MMMM YYYY à HH:mm'}}</p>
+
+    <!--  Ici j'ai utilisé les dates pipes avec date seulement
+    On peut rendre la chose plus puissante avec date : ''
+    date : 'medium = rajoute le mois en 3
+    date : 'longDate' = rajoute le mois en entier
+    date : 'longTime' = Affiche le format en numbers
+    date : 'd MMMM YYYY à HH:mm' = Formate date de la manière situé à gauche =>
+    on peut l'arranger comme on veut genre ceci : LE DD/MM/YY à HH/mm -->
 
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
 
@@ -24,4 +32,17 @@
     <!-- directive structurelle est avec un * et directive attribut avec des [] -->
 
     <p> <button (click)="onSnap()">{{ buttonText }}</button><span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span> </p>
+
+    <p>{{ 4586584.844 | number : '1.0-1'}}</p> 
+    <!-- On va faire les pipes décimals = Faire attention pas virgules mais .  -->
+    <!-- La il est formater comme en francais {{ 4586584.844 | number }} -->
+    <!--  1. conserne les unites = affiche au minim 1 -->
+    <!-- 0-1 c'est le min en premiere decimal et le 2 eme chiffre max affi decimal -->
+
+    <p>{{ 0.336 | percent }}</p> 
+    <!--  Transforme ce chiffre en % -->
+
+    <p>{{ 344.36 | currency: 'EUR' }}</p>
+    <!-- Transforme ce chiffre en valeur monétaire {{ 344.36 | currency }}-->
+    <!--Si je met (la configuration) : 'EUR', cela me l'affichera en euros-->
   </div>
