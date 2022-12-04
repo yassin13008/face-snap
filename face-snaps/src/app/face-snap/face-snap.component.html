@@ -1,7 +1,12 @@
 <div class="face-snap-card" [ngClass]="{ snapped : buttonText === 'UnSnap ?'}">
 
 <!-- Ici je rajoute la directive ng class => entre croched je met la class à ajouter + la condition d'ajout -->
-    <h2>{{ faceSnap.title }}</h2>
+    <h2>{{ faceSnap.title | titlecase }}</h2>
+
+    <!--  | = Pipes, permet de transformer la valeur sans toucher à sa valeur
+    | uppercase = Met le text en majuscule
+    | lowercase = Met le text en minuscule
+    | Title case = Met la premiere lettre en maj et le reste en miniscule -->
 
     <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
 
