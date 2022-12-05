@@ -13,6 +13,7 @@ export class FaceSnapsServices {
 
     faceSnaps: FaceSnap[]= [
         {
+        id : 1,
         title : "Le Japon",
         description :"Un très beau pays",
         imageUrl : "https://images.pexels.com/photos/581299/pexels-photo-581299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -21,6 +22,7 @@ export class FaceSnapsServices {
         location : "Tokyo"
       },
       {
+        id : 2,
         title : "Okinawa",
         description :"Une très belle plage",
         imageUrl : "https://images.pexels.com/photos/8582260/pexels-photo-8582260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -29,6 +31,7 @@ export class FaceSnapsServices {
         location : "Okinawa"
       },
       {
+        id : 3,
         title : "Le Mont Fuji",
         description :"Une très belle montagne",
         imageUrl : "https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -37,6 +40,7 @@ export class FaceSnapsServices {
       },
       // J'en ai crée 3 de plus les memes pour comprendre l'exemple
       {
+        id : 4,
         title : "Le Japon",
         description :"Un très beau pays",
         imageUrl : "https://images.pexels.com/photos/581299/pexels-photo-581299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -45,6 +49,7 @@ export class FaceSnapsServices {
         location : "Tokyo"
       },
       {
+        id : 5,
         title : "Okinawa",
         description :"Une très belle plage",
         imageUrl : "https://images.pexels.com/photos/8582260/pexels-photo-8582260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -53,11 +58,33 @@ export class FaceSnapsServices {
         location : "Okinawa"
       },
       {
+        id : 6,
         title : "Le Mont Fuji",
         description :"Une très belle montagne",
         imageUrl : "https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         createdDate : new Date(),
         snaps : 300,
       }
-    ]
+    ];
+
+getAllFaceSnap(): FaceSnap[] {
+  return this.faceSnaps;
+}
+
+getFaceSnapById(faceSnapId: number): FaceSnap {
+  const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+  if (!faceSnap) {
+      throw new Error('FaceSnap not found!');
+  } else {
+      return faceSnap;
+  }
+}
+
+snapFaceSnapById(faceSnapId:number, snapType: 'Snap!' | 'UnSnap?'): void {
+ const faceSnap = this.getFaceSnapById(faceSnapId);
+ snapType === 'Snap!' ? faceSnap.snaps++ : faceSnap.snaps--;
+
+
+}
+
 }
